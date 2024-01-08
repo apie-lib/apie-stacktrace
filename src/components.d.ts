@@ -5,57 +5,111 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { WrappedError, WrappedErrorTrace, WrappedErrorTraceList } from "./utils/utils";
+export { WrappedError, WrappedErrorTrace, WrappedErrorTraceList } from "./utils/utils";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface ApieClassDisplay {
+        "phpClassName": string;
+    }
+    interface ApieExceptionDisplay {
+        "code"?: number;
+        "message"?: string;
+        "phpClassName"?: string;
+        "phpVersion"?: string;
+        "trace"?: WrappedErrorTraceList;
+    }
+    interface ApieRenderCode {
+        "code": string;
+        "highlightLine": number;
+        "linesToDisplay": number;
+    }
+    interface ApieStackDisplay {
+        "trace": Array<WrappedErrorTrace>;
+    }
+    interface ApieStacktrace {
+        "exceptions": Array<WrappedError>;
+        "phpVersion": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLApieClassDisplayElement extends Components.ApieClassDisplay, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLApieClassDisplayElement: {
+        prototype: HTMLApieClassDisplayElement;
+        new (): HTMLApieClassDisplayElement;
+    };
+    interface HTMLApieExceptionDisplayElement extends Components.ApieExceptionDisplay, HTMLStencilElement {
+    }
+    var HTMLApieExceptionDisplayElement: {
+        prototype: HTMLApieExceptionDisplayElement;
+        new (): HTMLApieExceptionDisplayElement;
+    };
+    interface HTMLApieRenderCodeElement extends Components.ApieRenderCode, HTMLStencilElement {
+    }
+    var HTMLApieRenderCodeElement: {
+        prototype: HTMLApieRenderCodeElement;
+        new (): HTMLApieRenderCodeElement;
+    };
+    interface HTMLApieStackDisplayElement extends Components.ApieStackDisplay, HTMLStencilElement {
+    }
+    var HTMLApieStackDisplayElement: {
+        prototype: HTMLApieStackDisplayElement;
+        new (): HTMLApieStackDisplayElement;
+    };
+    interface HTMLApieStacktraceElement extends Components.ApieStacktrace, HTMLStencilElement {
+    }
+    var HTMLApieStacktraceElement: {
+        prototype: HTMLApieStacktraceElement;
+        new (): HTMLApieStacktraceElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "apie-class-display": HTMLApieClassDisplayElement;
+        "apie-exception-display": HTMLApieExceptionDisplayElement;
+        "apie-render-code": HTMLApieRenderCodeElement;
+        "apie-stack-display": HTMLApieStackDisplayElement;
+        "apie-stacktrace": HTMLApieStacktraceElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface ApieClassDisplay {
+        "phpClassName"?: string;
+    }
+    interface ApieExceptionDisplay {
+        "code"?: number;
+        "message"?: string;
+        "phpClassName"?: string;
+        "phpVersion"?: string;
+        "trace"?: WrappedErrorTraceList;
+    }
+    interface ApieRenderCode {
+        "code"?: string;
+        "highlightLine"?: number;
+        "linesToDisplay"?: number;
+    }
+    interface ApieStackDisplay {
+        "trace"?: Array<WrappedErrorTrace>;
+    }
+    interface ApieStacktrace {
+        "exceptions"?: Array<WrappedError>;
+        "phpVersion"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "apie-class-display": ApieClassDisplay;
+        "apie-exception-display": ApieExceptionDisplay;
+        "apie-render-code": ApieRenderCode;
+        "apie-stack-display": ApieStackDisplay;
+        "apie-stacktrace": ApieStacktrace;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "apie-class-display": LocalJSX.ApieClassDisplay & JSXBase.HTMLAttributes<HTMLApieClassDisplayElement>;
+            "apie-exception-display": LocalJSX.ApieExceptionDisplay & JSXBase.HTMLAttributes<HTMLApieExceptionDisplayElement>;
+            "apie-render-code": LocalJSX.ApieRenderCode & JSXBase.HTMLAttributes<HTMLApieRenderCodeElement>;
+            "apie-stack-display": LocalJSX.ApieStackDisplay & JSXBase.HTMLAttributes<HTMLApieStackDisplayElement>;
+            "apie-stacktrace": LocalJSX.ApieStacktrace & JSXBase.HTMLAttributes<HTMLApieStacktraceElement>;
         }
     }
 }

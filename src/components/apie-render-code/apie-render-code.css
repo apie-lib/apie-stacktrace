@@ -1,0 +1,15 @@
+.code-container {
+}
+
+code {
+  display: block;
+}
+
+code::before {
+  margin-right: 1em;
+  color: #999;
+}
+
+code.highlighted {
+  background-color: #ffd;
+}

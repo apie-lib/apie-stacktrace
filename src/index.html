@@ -8,7 +8,75 @@
     <script type="module" src="/build/apie-stacktrace.esm.js"></script>
     <script nomodule src="/build/apie-stacktrace.js"></script>
   </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <body style="background: rgba(128, 128, 128, 0.9)">
+    <apie-stacktrace php-version="8.1.2"></apie-stacktrace>
+    <script>
+      document.querySelector('apie-stacktrace').exceptions = [
+        {
+          message: "This is an exception",
+          class: "Apie\\Test\\Example\\DummyException",
+          trace: [
+            {
+              file: "/var/www/html/dummy.php",
+              line: 16,
+              class: "Apie\\Test\\Example\\DummyException",
+              type: "::",
+              function: "createException"
+            },
+            {
+              file: "/var/www/html/source-code-not-found.php",
+              line: 12,
+              class: "Apie\\Test\\Example\\DummyException",
+              type: "::",
+              function: "createException"
+            },
+            {
+              file: "/var/www/html/index.php",
+              line: 3,
+              function: "require_once"
+            }
+          ]
+        },
+        {
+          message: "This is a chained exception",
+          class: "Apie\\Test\\Example\\ChildException",
+          trace: [
+            {
+              file: "/var/www/html/source-code-not-found.php",
+              line: 16,
+              class: "Apie\\Test\\Example\\DummyException",
+              type: "::",
+              function: "createException"
+            },
+            {
+              file: "/var/www/html/index.php",
+              line: 3,
+              function: "require_once"
+            }
+          ]
+        }
+      ];
+    </script>
+    <template type="apie/stacktrace-source" id="/var/www/html/dummy.php">&lt;?php
+class ChildException extends Exception
+{
+  public function __construct(string $message)
+  {
+    parent::__construct($message, 1);
+  }
+
+  public function isChild(): bool
+  {
+    return true;
+  }
+
+  public static function create(): self
+  {
+    return new self('This is an exception');
+  }
+}</template>
+    <template type="apie/stacktrace-source" id="/var/www/html/index.php">&lt;?php
+require('../vendor/autoload.php');
+require_once('source-code-not-found.php');</template>
   </body>
 </html>

@@ -1,0 +1,6 @@
+:host {
+  display: block;
+}
+apie-exception-display, apie-stack-display {
+  margin: 1em;
+}

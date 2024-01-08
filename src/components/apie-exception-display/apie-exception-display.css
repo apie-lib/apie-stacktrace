@@ -1,0 +1,65 @@
+:host {
+  display: block;
+}
+section {
+  container-type: inline-size;
+  --tw-shadow-color: rgba(107,114,128,0.2);
+  --tw-shadow: var(--tw-shadow-colored);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow);
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),transparent var(--tw-gradient-via-position),var(--tw-gradient-to);
+  --tw-gradient-from: rgba(55,65,81,0.5) var(--tw-gradient-from-position);
+  --tw-bg-opacity: 1;
+  background-color: rgba(255,255,255,var(--tw-bg-opacity));
+  border-radius: 0.5rem;
+}
+.stretch-exception-display {
+  align-items: stretch;
+}
+main {
+  flex-grow: 1;
+  min-width: 0;
+  z-index: 10;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.exception-message-block {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  overflow-x: auto;
+}
+.exception-type {
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.exception-message {
+  line-height: 1.375;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.clamped-message {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.php-version {
+  font-size: .875rem;
+  line-height: 1.25rem;
+  gap: 1rem;
+  justify-content: flex-end;
+  grid-auto-flow: column;
+  display: grid;
+  --tw-text-opacity: 1;
+  color: rgba(107,114,128,var(--tw-text-opacity));
+}
+.tracking-wider {
+  letter-spacing: .05em;
+}
