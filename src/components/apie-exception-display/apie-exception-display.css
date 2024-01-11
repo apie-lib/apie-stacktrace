@@ -3,14 +3,8 @@
 }
 section {
   container-type: inline-size;
-  --tw-shadow-color: rgba(107,114,128,0.2);
-  --tw-shadow: var(--tw-shadow-colored);
-  box-shadow: var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow);
-  --tw-gradient-to: transparent var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from),transparent var(--tw-gradient-via-position),var(--tw-gradient-to);
-  --tw-gradient-from: rgba(55,65,81,0.5) var(--tw-gradient-from-position);
-  --tw-bg-opacity: 1;
-  background-color: rgba(255,255,255,var(--tw-bg-opacity));
+  box-shadow: 0 0 transparent,0 0 transparent,var(--apie-shadow-colored);
+  background-color: var(--apie-stacktrace-background);
   border-radius: 0.5rem;
 }
 .stretch-exception-display {
@@ -57,8 +51,7 @@ main {
   justify-content: flex-end;
   grid-auto-flow: column;
   display: grid;
-  --tw-text-opacity: 1;
-  color: rgba(107,114,128,var(--tw-text-opacity));
+  color: var(--apie-stacktrace-php-version)
 }
 .tracking-wider {
   letter-spacing: .05em;

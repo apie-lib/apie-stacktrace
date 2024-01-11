@@ -7,7 +7,7 @@
   gap: 0.75rem;
   align-items: center;
   display: flex;
-  background-color: rgba(107,114,128,.05);
+  background-color: var(--apie-stacktrace-class-display-background);
 }
 .php-class-container {
   display: block;

@@ -18,7 +18,7 @@ export class ApieStacktrace {
           {this.exceptions.map((value: WrappedError, index: number) => {
             return (
               [
-                <apie-exception-display key={index} message={value.message} phpVersion={this.phpVersion} phpClassName={value.class} code={value.code} ></apie-exception-display>,
+                <apie-exception-display key={index} message={value.message} phpVersion={index ? null : this.phpVersion} phpClassName={value.class} code={value.code} ></apie-exception-display>,
                 value.trace && <apie-stack-display trace={value.trace}></apie-stack-display>,
               ]
             )

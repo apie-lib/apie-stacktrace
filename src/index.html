@@ -7,6 +7,23 @@
 
     <script type="module" src="/build/apie-stacktrace.esm.js"></script>
     <script nomodule src="/build/apie-stacktrace.js"></script>
+    <link rel="stylesheet" href="/build/apie-stacktrace.css">
+    <style>
+      * {
+        --apie-stacktrace-class-display-background: #888;
+        --apie-stacktrace-background: #FFF;
+        --apie-stacktrace-border-color: #222;
+        --apie-stacktrace-trace-hover-color: rgba(255, 255, 255,.1);
+        --apie-stacktrace-trace-active-background-color: rgba(192, 192, 192, 0.5);
+        --apie-stacktrace-trace-active-text-color: #666;
+        --apie-stacktrace-code-text-color: #888;
+        --apie-stacktrace-code-highlight-color: #AAA;
+        --apie-stacktrace-code-background-color: #999;
+        --apie-shadow-color: transparent;
+        --apie-stacktrace-php-version: #888;
+        --apie-shadow-colored: 0 0 0 0 var(--apie-shadow-color);
+      }
+    </style>
   </head>
   <body style="background: rgba(128, 128, 128, 0.9)">
     <apie-stacktrace php-version="8.1.2"></apie-stacktrace>

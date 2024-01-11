@@ -1,15 +1,13 @@
-.code-container {
-}
-
 code {
   display: block;
+  background-color: var(--apie-stacktrace-code-background-color);
 }
 
 code::before {
   margin-right: 1em;
-  color: #999;
+  color: var(--apie-stacktrace-code-text-color);
 }
 
 code.highlighted {
-  background-color: #ffd;
+  background-color: var(--apie-stacktrace-code-highlight-color);
 }
