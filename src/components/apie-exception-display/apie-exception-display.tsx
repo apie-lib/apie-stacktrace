@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, State, h } from '@stencil/core';
 import type { WrappedError, WrappedErrorTraceList } from '../../utils/utils';
 
 @Component({
@@ -12,6 +12,7 @@ export class ApieExceptionDisplay implements WrappedError {
   @Prop({mutable: true, reflect: true}) phpClassName?: string;
   @Prop({mutable: true, reflect: true}) trace?: WrappedErrorTraceList;
   @Prop({mutable: true, reflect: true}) phpVersion?: string;
+  @State() clamped: boolean = true;
   render() {
     return (
       <div>
@@ -26,8 +27,8 @@ export class ApieExceptionDisplay implements WrappedError {
                       <span><span class="tracking-wider">PHP</span>&nbsp;{this.phpVersion}</span>
                     </div> }
                   </header>
-                  <div class="exception-message">
-                    <div class="clamped-message">{this.message}</div>
+                  <div class="exception-message" onClick={() => this.clamped = !this.clamped}>
+                    <div class={this.clamped ? "clamped-message" : ""}>{this.message}</div>
                   </div>
                 </div>
               </div>

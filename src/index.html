@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/build/apie-stacktrace.css">
     <style>
       * {
-        --apie-stacktrace-class-display-background: #888;
+        /*--apie-stacktrace-class-display-background: #888;
         --apie-stacktrace-background: #FFF;
         --apie-stacktrace-border-color: #222;
         --apie-stacktrace-trace-hover-color: rgba(255, 255, 255,.1);
@@ -21,7 +21,7 @@
         --apie-stacktrace-code-background-color: #999;
         --apie-shadow-color: transparent;
         --apie-stacktrace-php-version: #888;
-        --apie-shadow-colored: 0 0 0 0 var(--apie-shadow-color);
+        --apie-shadow-colored: 0 0 0 0 var(--apie-shadow-color);*/
       }
     </style>
   </head>
@@ -55,7 +55,7 @@
           ]
         },
         {
-          message: "This is a chained exception",
+          message: "This is a chained exception and it's a very long one so you can see it's being clamped, you can click it to see the full message. Fee free to read the entire message as it's quite a long message as you have noticed when you count the number of characters. Hahahahahhaha!",
           class: "Apie\\Test\\Example\\ChildException",
           trace: [
             {
