@@ -26,6 +26,10 @@
     </style>
   </head>
   <body style="background: rgba(128, 128, 128, 0.9)">
+    <apie-filter-overview input-prefix="query"></apie-filter-overview>
+    <script>
+      document.querySelector('apie-filter-overview').filterNames = ['test', 'test2']
+    </script>
     <apie-stacktrace php-version="8.1.2"></apie-stacktrace>
     <script>
       document.querySelector('apie-stacktrace').exceptions = [

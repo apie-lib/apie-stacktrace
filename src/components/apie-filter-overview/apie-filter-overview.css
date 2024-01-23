@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.filter-tag {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.filter-tag button {
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #ff5555;
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+.select-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+select,
+input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  width: 150px;
+}
+
+input[type="hidden"] {
+  display: none;
+}

@@ -18,6 +18,10 @@ export namespace Components {
         "phpVersion"?: string;
         "trace"?: WrappedErrorTraceList;
     }
+    interface ApieFilterOverview {
+        "filterNames": string[];
+        "inputPrefix": string;
+    }
     interface ApieRenderCode {
         "code": string;
         "highlightLine": number;
@@ -44,6 +48,12 @@ declare global {
         prototype: HTMLApieExceptionDisplayElement;
         new (): HTMLApieExceptionDisplayElement;
     };
+    interface HTMLApieFilterOverviewElement extends Components.ApieFilterOverview, HTMLStencilElement {
+    }
+    var HTMLApieFilterOverviewElement: {
+        prototype: HTMLApieFilterOverviewElement;
+        new (): HTMLApieFilterOverviewElement;
+    };
     interface HTMLApieRenderCodeElement extends Components.ApieRenderCode, HTMLStencilElement {
     }
     var HTMLApieRenderCodeElement: {
@@ -65,6 +75,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "apie-class-display": HTMLApieClassDisplayElement;
         "apie-exception-display": HTMLApieExceptionDisplayElement;
+        "apie-filter-overview": HTMLApieFilterOverviewElement;
         "apie-render-code": HTMLApieRenderCodeElement;
         "apie-stack-display": HTMLApieStackDisplayElement;
         "apie-stacktrace": HTMLApieStacktraceElement;
@@ -81,6 +92,10 @@ declare namespace LocalJSX {
         "phpVersion"?: string;
         "trace"?: WrappedErrorTraceList;
     }
+    interface ApieFilterOverview {
+        "filterNames"?: string[];
+        "inputPrefix"?: string;
+    }
     interface ApieRenderCode {
         "code"?: string;
         "highlightLine"?: number;
@@ -96,6 +111,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "apie-class-display": ApieClassDisplay;
         "apie-exception-display": ApieExceptionDisplay;
+        "apie-filter-overview": ApieFilterOverview;
         "apie-render-code": ApieRenderCode;
         "apie-stack-display": ApieStackDisplay;
         "apie-stacktrace": ApieStacktrace;
@@ -107,6 +123,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "apie-class-display": LocalJSX.ApieClassDisplay & JSXBase.HTMLAttributes<HTMLApieClassDisplayElement>;
             "apie-exception-display": LocalJSX.ApieExceptionDisplay & JSXBase.HTMLAttributes<HTMLApieExceptionDisplayElement>;
+            "apie-filter-overview": LocalJSX.ApieFilterOverview & JSXBase.HTMLAttributes<HTMLApieFilterOverviewElement>;
             "apie-render-code": LocalJSX.ApieRenderCode & JSXBase.HTMLAttributes<HTMLApieRenderCodeElement>;
             "apie-stack-display": LocalJSX.ApieStackDisplay & JSXBase.HTMLAttributes<HTMLApieStackDisplayElement>;
             "apie-stacktrace": LocalJSX.ApieStacktrace & JSXBase.HTMLAttributes<HTMLApieStacktraceElement>;
