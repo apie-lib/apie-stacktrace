@@ -20,6 +20,7 @@ export namespace Components {
     }
     interface ApieFilterOverview {
         "filterNames": string[];
+        "filters": Record<string, string>;
         "inputPrefix": string;
     }
     interface ApieRenderCode {
@@ -94,6 +95,7 @@ declare namespace LocalJSX {
     }
     interface ApieFilterOverview {
         "filterNames"?: string[];
+        "filters"?: Record<string, string>;
         "inputPrefix"?: string;
     }
     interface ApieRenderCode {

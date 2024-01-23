@@ -6,9 +6,9 @@ import { Component, h, State, Prop } from '@stencil/core';
   shadow: true,
 })
 export class ApieFilterOverview {
-  @Prop() filterNames: string[] = [];
-  @Prop() inputPrefix: string = 'query';
-  @State() filters: Record<string, string> = {};
+  @Prop({mutable: true, reflect: true}) filterNames: string[] = [];
+  @Prop({mutable: true, reflect: true}) inputPrefix: string = 'query';
+  @Prop({mutable: true, reflect: true}) filters: Record<string, string> = {};
   @State() filterKey: string = '';
   @State() filterValue: string = '';
   @State() showFilterOptions: boolean = false;
@@ -45,6 +45,7 @@ export class ApieFilterOverview {
           {this.showFilterOptions && (
             <div>
             <select
+              class="select-container"
               onInput={(e) => (this.filterKey = (e.target as HTMLSelectElement).value)}
             >
               [
