@@ -42,7 +42,7 @@ export class ApieFilterOverview {
     return (
       <div>
         <div>
-          { this.availableFilters.length > 0 && <button onClick={() => this.toggleOptions()}>Add filter</button> }
+          { this.availableFilters.length > 0 && <button type="button" onClick={() => this.toggleOptions()}>Add filter</button> }
           {this.showFilterOptions && (
             <div>
             <select
@@ -63,7 +63,7 @@ export class ApieFilterOverview {
             value={this.filterValue}
             onInput={(e) => (this.filterValue = (e.target as HTMLInputElement).value)}
           />,
-          <button disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add Filter</button>
+          <button type="button" disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add Filter</button>
             </div>
           )}         
         </div>
@@ -72,7 +72,7 @@ export class ApieFilterOverview {
           {Object.entries(this.filters).map(([key,value]) => (
             <div key={key} class="filter-tag">
               {key} = {value}
-              <button onClick={() => this.handleFilterRemove(key)}>X</button>
+              <button type="button" onClick={() => this.handleFilterRemove(key)}>X</button>
               {/* Hidden input for each filter */}
               <input type="hidden" name={`${this.inputPrefix}[${key}]`} value={value} />
             </div>
