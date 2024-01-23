@@ -3,7 +3,8 @@ import { Component, h, State, Prop } from '@stencil/core';
 @Component({
   tag: 'apie-filter-overview',
   styleUrl: 'apie-filter-overview.css',
-  shadow: true,
+  shadow: false,
+  scoped: true
 })
 export class ApieFilterOverview {
   @Prop({mutable: true, reflect: true}) filterNames: string[] = [];
