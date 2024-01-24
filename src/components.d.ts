@@ -22,6 +22,7 @@ export namespace Components {
         "filterNames": string[];
         "filters": Record<string, string>;
         "inputPrefix": string;
+        "labels": Record<string, string>;
     }
     interface ApieRenderCode {
         "code": string;
@@ -97,6 +98,7 @@ declare namespace LocalJSX {
         "filterNames"?: string[];
         "filters"?: Record<string, string>;
         "inputPrefix"?: string;
+        "labels"?: Record<string, string>;
     }
     interface ApieRenderCode {
         "code"?: string;

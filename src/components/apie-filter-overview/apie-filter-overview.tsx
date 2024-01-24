@@ -10,6 +10,7 @@ export class ApieFilterOverview {
   @Prop({mutable: true, reflect: true}) filterNames: string[] = [];
   @Prop({mutable: true, reflect: true}) inputPrefix: string = 'query';
   @Prop({mutable: true, reflect: true}) filters: Record<string, string> = {};
+  @Prop({mutable: true, reflect: true}) labels: Record<string, string> = {};
   @State() filterKey: string = '';
   @State() filterValue: string = '';
   @State() showFilterOptions: boolean = false;
@@ -61,7 +62,7 @@ export class ApieFilterOverview {
                   [
                     {this.availableFilters.map((filter) => (
                       <option value={filter} key={filter} selected={filter === this.filterKey}>
-                        {filter}
+                        {this.labels[filter] ?? filter}
                       </option>
                     ))}
                   ]
@@ -80,7 +81,7 @@ export class ApieFilterOverview {
         <div>
           {Object.entries(this.filters).map(([key,value]) => (
             <div key={key} class="filter-tag">
-              {key} = {value}
+              {this.labels[key] ?? key} = {value}
               <button type="button" onClick={() => this.handleFilterRemove(key)}>X</button>
               {/* Hidden input for each filter */}
               <input type="hidden" name={`${this.inputPrefix}[${key}]`} value={value} />
