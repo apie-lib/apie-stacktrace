@@ -14,6 +14,8 @@ export class ApieFilterOverview {
   @State() filterValue: string = '';
   @State() showFilterOptions: boolean = false;
 
+  private select?: HTMLSelectElement;
+
   handleFilterAdd() {
     if (this.filterKey && this.filterValue) {
       this.filters[this.filterKey] = this.filterValue;
@@ -30,7 +32,12 @@ export class ApieFilterOverview {
 
   toggleOptions() {
     this.showFilterOptions = !this.showFilterOptions;
-    this.filterKey = Object.keys(this.filters)[0] ?? '';
+    this.filterKey = this.availableFilters[0] ?? '';
+    if (this.showFilterOptions && this.select) {
+      setTimeout(() => {
+        this.select.focus();
+      }, 100)
+    }
   }
 
   public get availableFilters(): string[]
@@ -42,30 +49,32 @@ export class ApieFilterOverview {
     return (
       <div>
         <div>
-          { this.availableFilters.length > 0 && <button type="button" onClick={() => this.toggleOptions()}>Add filter</button> }
-          {this.showFilterOptions && (
-            <div>
-            <select
-              class="select-container"
-              onInput={(e) => (this.filterKey = (e.target as HTMLSelectElement).value)}
-            >
-              [
-                <option value="" selected={"" === this.filterKey}>--</option>,
-                {this.availableFilters.map((filter) => (
-                  <option value={filter} key={filter} selected={filter === this.filterKey}>
-                    {filter}
-                  </option>
-                ))}
-              ]
-            </select>,
-            <input
-            type="text"
-            value={this.filterValue}
-            onInput={(e) => (this.filterValue = (e.target as HTMLInputElement).value)}
-          />,
-          <button type="button" disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add Filter</button>
-            </div>
-          )}         
+          {
+            [
+              this.availableFilters.length > 0 && <button type="button" onClick={() => this.toggleOptions()}>Add filter</button>,
+              <div style={ { display: (this.showFilterOptions ? 'block' : 'none') } }>
+                <select
+                  ref={el => this.select = el as HTMLSelectElement}
+                  class="select-container"
+                  onInput={(e) => (this.filterKey = (e.target as HTMLSelectElement).value)}
+                >
+                  [
+                    {this.availableFilters.map((filter) => (
+                      <option value={filter} key={filter} selected={filter === this.filterKey}>
+                        {filter}
+                      </option>
+                    ))}
+                  ]
+                </select>,
+                <input
+                  type="text"
+                  value={this.filterValue}
+                  onInput={(e) => (this.filterValue = (e.target as HTMLInputElement).value)}
+                />,
+                <button type="button" disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add Filter</button>
+              </div>  
+            ]
+          }
         </div>
 
         <div>
