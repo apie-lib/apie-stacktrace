@@ -81,7 +81,7 @@ export class ApieFilterOverview {
         <div>
           {Object.entries(this.filters).map(([key,value]) => (
             <div key={key} class="filter-tag">
-              {this.labels[key] ?? key} = {value}
+              {this.labels[key] ?? key} contains "{value}"
               <button type="button" onClick={() => this.handleFilterRemove(key)}>X</button>
               {/* Hidden input for each filter */}
               <input type="hidden" name={`${this.inputPrefix}[${key}]`} value={value} />
