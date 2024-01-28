@@ -66,13 +66,13 @@ export class ApieFilterOverview {
                       </option>
                     ))}
                   ]
-                </select>,
+                </select>
                 <input
                   type="text"
                   value={this.filterValue}
                   onInput={(e) => (this.filterValue = (e.target as HTMLInputElement).value)}
-                />,
-                <button type="button" disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add Filter</button>
+                />
+                <button type="button" disabled={!this.filterKey || !this.filterValue} onClick={() => this.handleFilterAdd()}>Add</button>
               </div>  
             ]
           }
